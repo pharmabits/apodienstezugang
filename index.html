@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy to Clipboard</title>
+</head>
+<body>
+    <p>
+        <a href="https://portal.apodienste.de" target="_blank">Go to Portal</a>
+    </p>
+    <p>
+        <strong>Username: </strong>
+        <span id="username" style="cursor: pointer;" onclick="copyToClipboard('username')">post.fah@goetz.apotheke.de</span>
+    </p>
+    <p>
+        <strong>Password: </strong>
+        <span id="password" style="cursor: pointer;" onclick="copyToClipboard('password')">Aa123456!</span>
+    </p>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var text = document.getElementById(elementId).innerText;
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("Copy");
+            textArea.remove();
+            alert("Copied the text: " + text);
+        }
+    </script>
+</body>
+</html>
